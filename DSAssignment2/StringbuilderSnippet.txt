@@ -1,0 +1,17 @@
+private MyStringBuilder insertConnect(int offset, CNode frontInsert, CNode endInsert) {
+		
+		if(offset>0) {			//in the middle somewhere
+			   CNode frontLink = nodeAt(offset-1);
+			   CNode endLink = nodeAt(offset);
+			   frontLink.next = frontInsert;
+			   endInsert.next = endLink;
+			}
+	    else {	   //Insert at front
+				 endInsert.next = firstC;
+				 firstC= endInsert;
+			 }
+		return this;
+		}
+
+
+

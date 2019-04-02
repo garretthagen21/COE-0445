@@ -1,0 +1,121 @@
+// import statement for the gui
+
+import javax.swing.JOptionPane;
+
+import java.util.Scanner;
+
+
+public class PalindromeGui{
+
+    public static void main(String[] args){
+
+        String phrase = JOptionPane.showInputDialog("Enter a phrase: ");
+
+        phrase = phrase.toLowerCase();
+
+        //PseudoCode
+
+        //while leftPos less than rightPos
+
+        //read char at leftPos
+
+        //skip c if not a letter
+
+        //read char at rightPos
+
+        //skip c if not a letter
+
+        //compare. If mismatch not a palindrome
+
+        //increment leftPos
+
+        //decrement rightPos
+
+        
+
+        // Declarations
+
+        String reversedPhrase = "";
+
+        boolean isP2 = true;
+        boolean isb1 =Character.isLetter('a');
+        boolean isb2= Character.isLetter('A');
+        boolean isb3= Character.isLetter('0');
+        boolean isb4= Character.isLetter('.');
+
+         
+
+        
+
+        
+
+        // Method 2
+
+        for(int pos=0; pos < phrase.length(); pos++) { 
+
+		        char c = phrase.charAt(pos);
+		        reversedPhrase = c + reversedPhrase;
+
+        }
+
+        
+
+        
+
+     int leftpos= 0;
+     int rightpos= phrase.length()-1;
+     boolean keepChecking = true;
+   
+
+    while (leftpos < rightpos){
+     
+    			   
+    			while(keepChecking && leftpos < rightpos) {	//Keep moving the appropriate indexes until they are both letters or the pointers cross 
+			    	
+				    	//Move the index towards the back of the word until we get a letter -->  	
+				    if(Character.isWhitespace(reversedPhrase.charAt(leftpos)) || !(Character.isLetter(reversedPhrase.charAt(leftpos)))) 
+				       	 leftpos++;
+				     
+				    //Move the index towards the front of the word until we get a letter -->  
+				    else if(Character.isWhitespace(reversedPhrase.charAt(rightpos)) || !(Character.isLetter(reversedPhrase.charAt(rightpos)))) 
+				         rightpos--;
+				    
+				    //***If either of the above two methods execute, we will return to the top of the loop because keepChecking is still true. Otherwise we will execute the else method below**
+				    
+				    //Both indexes are letters and we are good to go --> Break out of the loop
+				    else
+				    		keepChecking = false;
+			   
+			   }
+  
+    keepChecking = true;	 //Reset this back to true so it checks on the next iteration. It was set to false when we broke out of the loop above
+    
+    //Once we get through the whitespace and non letters for both indicies we can check to see if the characters are equal
+     if (Character.toLowerCase(reversedPhrase.charAt(leftpos)) != Character.toLowerCase(reversedPhrase.charAt(rightpos))){ 
+    	 		isP2 = false;				//They are not equal so set isP2 to false and break from the loop
+    	 		break;
+
+     }
+
+      leftpos++; //Increment beacausese we did not break from the loop
+      rightpos--; 
+
+   }
+
+
+     
+     
+     
+     
+    //Output statements
+    String outputMessage = "Phrase: " + phrase + "\n" + "Reversed Phrase: " + reversedPhrase + "\n" + "is Palindrome? : " + isP2 + "\n";
+    JOptionPane.showMessageDialog(null, outputMessage);
+
+
+    // Close the program
+     System.exit(0);
+
+    }
+
+ }
+
